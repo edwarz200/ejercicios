@@ -1,18 +1,29 @@
-<script src="https://kit.fontawesome.com/f462888101.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<section id="mos">
-    <section id="in" onclick="">
-        <i class="fas fa-info"></i>
-    </section>
-    <ul id="mostrar">
-        <?php
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://kit.fontawesome.com/f462888101.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <section id="mos">
+        <section id="in" onclick="">
+            <i class="fas fa-info"></i>
+        </section>
+        <ul id="mostrar">
+            <?php
             foreach($_FILES["archivo_fls"]as $clave=> $valor){
                 echo"<li>Propiedad: $clave --- Valor: $valor </li>";
             }
         ?>
-    </ul>
-</section>
-<?php
+        </ul>
+    </section>
+    <?php
 
     $archivo = $_FILES["archivo_fls"]["tmp_name"];
     $destino = "archivos/".$_FILES["archivo_fls"]["name"];
@@ -21,13 +32,36 @@
     
     if ($tipo == "image/jpeg"|| $tipo == "image/png" || $tipo == "image/wbpm" ) {
         move_uploaded_file($archivo,$destino);
-        echo '<script>alertify.set("notifier","position", "bottom-left"); alertify.notify("Archivo Subido", "custom", 2, function(){console.log("dismissed");});</script>'; 
+        echo '<script>swal({
+            title: "Archivo Subido!",
+            icon: "success",
+            button: false,
+            timer: 1000,
+          });</script>'; 
         echo("<img id=\"img\" src='archivos/".$_FILES["archivo_fls"]["name"]."'>");
     }else{
-        echo("<script>alertify.alert(\"solo se adminten archivos de imagen(png,jpg,jpeg,wbpm)\", function(){ alertify.message('OK'); });</script> <a href=\"enviar_archivo.php\">Regresar</a></h1> ");
+        echo("<script>
+        swal({
+            title: \"Tipo de archivo incorrecto\",
+            text: \"solo se adminten archivos de imagen(png,jpg,jpeg,wbpm)\",
+            icon: \"warning\",
+            dangerMode: true,
+        }
+    )
+    .then((willDelete) => {
+    if (willDelete) {
+    swal(\"Redirecionando\", { icon: \"success\",});
+    location.href = \"index.php\"
+    } else {
     }
-    
+    }); </script>");
+    }
+
     ?>
+
+</body>
+
+</html>
 <script>
 var m = 1;
 
@@ -95,4 +129,6 @@ li {
 </style>
 
 
-<a href="http://localhost/ejercicio01/" title="Volver a http://localhost/ejercicio01/" style="position: fixed; bottom: 0; text-decoration: none; color: white; background-color: black; padding:5px 20px; border-radius: 3px;";><i class="fas fa-chevron-left"></i></a>
+<a href="http://localhost/ejercicio01/" title="Volver a http://localhost/ejercicio01/"
+    style="position: fixed; bottom: 0; text-decoration: none; color: white; background-color: black; padding:5px 20px; border-radius: 3px;"
+    ;><i class="fas fa-chevron-left"></i></a>
