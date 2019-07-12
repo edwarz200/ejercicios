@@ -7,7 +7,7 @@ function conectarse(){
     $conectar = new mysqli($servidor, $usuario, $password, $bd);
     $conectar->set_charset("utf8");
     
-    return $conectar
+    return $conectar;
 }
  $conexion = conectarse();
 ?>

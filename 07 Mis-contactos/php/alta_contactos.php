@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="css/mis_contactos.css">
-
 <form action="php/agregar-contacto.php" id="alta-contacto" name="alta_frm" method="post" enctype="multipart/form-data">
     <fieldset>
         <legend>Alta de Contacto</legend>
@@ -40,7 +38,7 @@
         </div>
         <div id="div">
             <label for="imagen">Foto: </label>
-            <input type="text" id="imagen" class="cambio" name="imagen_txt" title="Tu Foto" placeholder="Sube tu foto" required>
+            <input type="file" value="hellowda" id="imagen" class="cambio" name="imagen_txt" title="Tu Foto" placeholder="Sube tu foto" required>
         </div>
         <div id="div">
             <input type="submit" id="enviar-alta" class="cambio" name="enviar_btn" value="Agregar">

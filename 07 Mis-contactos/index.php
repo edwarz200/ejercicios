@@ -34,7 +34,12 @@ switch ($op) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> <?php echo $titulo; ?> </title>
     <link rel="stylesheet" href="css/mis_contactos.css">
-    <script src="js/mis-contactos"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        !window.jQuery && document.write("<script src='js/jquery.min.js'><\/script>")
+    </script>
+    <script src="js/mis_contactos.js"></script>
 </head>
 
 <body>

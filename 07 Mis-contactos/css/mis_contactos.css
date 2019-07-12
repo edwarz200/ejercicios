@@ -25,6 +25,10 @@ body {
     font-size: 16px;
 }
 
+form {
+    display: none;
+}
+
 ul {
     list-style: none;
 }
@@ -55,6 +59,29 @@ nav,
 
 #div {
     padding: 5px 5px;
+}
+
+#enviar-alta {
+    width: 40%;
+    margin: 0 30% 0 30%;
+    height: 35px;
+    background: url("../img/sin_ruido.png");
+    -webkit-box-shadow: 4px 0px 25px -12px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px 0px 25px -12px rgba(0, 0, 0, 0.75);
+    box-shadow: 4px 0px 25px -12px rgba(0, 0, 0, 0.75);
+    color: #FFF;
+    font-family: "Chalet", Helvetica, Verdana;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .55s linear;
+}
+
+#enviar-alta:hover {
+    -webkit-box-shadow: 4px 0px 33px -12px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px 0px 33px -12px rgba(0, 0, 0, 0.75);
+    box-shadow: 4px 0px 33px -12px rgba(0, 0, 0, 0.75);
+    background: url("../img/ruido.png");
 }
 
 .cambio {

@@ -23,8 +23,9 @@
     // echo "<h3>Conexión cerrada</h3><hr><br>";
     include("conexion.php");
     $consulta = ("SELECT * FROM pais ORDER BY pais");
-    $ejecutar_consulta = $conexion->query($consulta)
+    $ejecutar_consulta = $conexion->query($consulta);
     while($registro = $ejecutar_consulta->fetch_object()){
         echo "<option value=\"".$registro->pais."\">".$registro->pais.'</option> <br/>';
     }
+    include("conexion_close.php");
 ?>
