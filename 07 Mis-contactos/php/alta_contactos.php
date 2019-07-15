@@ -1,4 +1,4 @@
-<form action="php/agregar-contacto.php" id="alta-contacto" name="alta_frm" method="post" enctype="multipart/form-data">
+<form action="php/insercion.php" id="alta-contacto" name="alta_frm" method="post" enctype="multipart/form-data">
     <fieldset>
         <legend>Alta de Contacto</legend>
         <div id="div">
@@ -26,8 +26,8 @@
         </div>
         <div id="div">
             <label for="telefono">Telefono: </label>
-            <input type="number" id="telefono" class="cambio" name="telefono_txt"
-                placeholder="Escribe tu telefono" title="Tu telefono" required>
+            <input type="number" id="telefono" class="cambio" name="telefono_txt" placeholder="Escribe tu telefono"
+                title="Tu telefono" required>
         </div>
         <div id="div">
             <label for="pais">País: </label>
@@ -37,12 +37,26 @@
             </select>
         </div>
         <div id="div">
-            <label for="imagen">Foto: </label>
-            <input type="file" value="hellowda" id="imagen" class="cambio" name="imagen_txt" title="Tu Foto" placeholder="Sube tu foto" required>
+            <!-- <label for="imagen">Foto: </label> -->
+            <label id="img" for="imagen" >
+                <section id="imgpred" title="Selcciona la imagen que deseas subir">
+                    <i class="fas fa-camera fa-7x"></i>
+                    <p> Subir Imagen</p>
+                </section>
+                <section id="visorArchivo"></section>
+                <section id="imgplus" title="Cambia esta imagen por la que desees subir">
+                    <div>
+                        <i class="fas fa-sync-alt fa-7x"></i>
+                        <p>Modificar Imagen</p>
+                    </div>
+                </section>
+            </label>
+            <input type="file" id="imagen" onchange=" return validarExt();" class="cambio" name="imagen_fls" title="Tu Foto">
         </div>
+        <input type="submit" id="enviar-alta" class="cambio" name="enviar_btn" value="Agregar">
         <div id="div">
-            <input type="submit" id="enviar-alta" class="cambio" name="enviar_btn" value="Agregar">
         </div>
-        <?php include("php/mensajes.php")?>
+        <?php include("mensajes.php")?>
     </fieldset>
 </form>
+<script ></script>

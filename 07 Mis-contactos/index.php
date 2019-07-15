@@ -18,6 +18,12 @@ switch ($op) {
         $contenido = "php/consultas_contactos.php";
         $titulo = "Consultas a Contactos";
         break;
+    case 'altaimg':
+        $contenido = "php/alta_contactos.php";
+        include("php/archivo.php");
+        $titulo = "Alta de Contactos";
+    break;
+    
     
     default:
         $contenido = "php/home.php";
@@ -36,10 +42,12 @@ switch ($op) {
     <link rel="stylesheet" href="css/mis_contactos.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/f462888101.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        !window.jQuery && document.write("<script src='js/jquery.min.js'><\/script>")
+    !window.jQuery && document.write("<script src='Js/jquery.min.js'><\/script>")
     </script>
-    <script src="js/mis_contactos.js"></script>
+    <script src="Js/mis-contactos.js"></script>
 </head>
 
 <body>
@@ -55,6 +63,7 @@ switch ($op) {
         </nav>
         <section id="principal">
             <?php include($contenido);?>
+            <?php $mensaje= $_GET['mensaje']; echo"<span>$mensaje</span>";?>
         </section>
     </section>
 </body>
