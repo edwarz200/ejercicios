@@ -68,7 +68,7 @@ input[type="text"]:focus {
 
 input[type="file"] {
     cursor: pointer;
-    display: none
+    /* display: none; */
 }
 
 input[type="submit"] {
@@ -99,6 +99,10 @@ label {
     cursor: pointer;
 }
 
+ul {
+    list-style: none;
+}
+
 nav,
 #principal {
     -ms-box-sizing: border-box;
@@ -116,22 +120,16 @@ nav,
 
 #visorArchivo,
 #visorArchivo embed,
-#imgplus {
+#imgplus,
+#loader,
+#loader {
     width: 100%;
     height: 100%;
-}
-
-ul {
-    list-style: none;
 }
 
 #contenido {
     margin: 0 auto;
     text-align: center;
-}
-
-#principal {
-    width: 75%;
 }
 
 #div {
@@ -171,7 +169,8 @@ ul {
     z-index: 1;
 }
 
-#imgplus {
+#imgplus,
+#loader {
     position: absolute;
     top: 0;
     color: #fff;
@@ -186,6 +185,17 @@ ul {
     opacity: 1;
 }
 
+#loader {
+    left: 0;
+    z-index: 999;
+    background: url(../img/loader.gif) no-repeat center;
+    background-size: cover;
+}
+
+#principal {
+    width: 75%;
+}
+
 .adjuntar-archivo {
     background: #EEE url(../img/boton-buscar.png) no-repeat 100%;
 }
@@ -196,4 +206,22 @@ ul {
     -o-transition: all .55s ease-out;
     -webkit-transition: all .55s ease-out;
     transition: all .55s ease-out;
+}
+
+.loaderp {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    width: 75%;
+    background-color: #FFF;
+    background-position-y: 0%;
+    z-index: 5;
+}
+
+.mensajes {
+    background-color: rgba(255, 255, 0, 0.527);
+    border-radius: .5em;
+    font-family: Helvetica, Verdana;
+    font-size: 1em;
+    padding: .5em;
 }

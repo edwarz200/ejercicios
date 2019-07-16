@@ -8,7 +8,7 @@
     $nacimiento = $_POST['nacimiento_txt'];
     $telefono = $_POST['telefono_txt'];
     $pais = $_POST['pais_slt'];
-    $imagen = $_POST['imagen_fls'];
+    // $imagen = $_FILES['archivo_fls'];
     $imagen_generica= ($sexo === "M")?"img/fotos/amigo.png":"img/fotos/amiga.png";
 
     include("conexion.php");
@@ -20,8 +20,8 @@
     if ($num_regs == 0) {
         //se ejecuta la funcion para subir la imagen
         include("funciones.php");
-        $tipo = $_FILES["foto_fls"]["type"];
-        $archivo = $_FILES["foto_fls"]["tmp_name"];
+        $tipo = $_FILES['archivo_fls']['type'];
+        $archivo = $_FILES['archivo_fls']['tmp_name'];
         $se_subio_imagen = subir_imagen($tipo,$archivo,$email);
 
         //Si la foto en el formulario viene vacia le asigno el valor de la imagen generica, sino entonce el nombre de la foto que se subio
@@ -43,6 +43,8 @@
         $mensaje = "No se pudo dar de alta al contacto con el email $email porque ya existe :/";
     }
     include("cerrar_conexion.php");
+
+    // echo $imagen;
     header("Location: ../index.php?op=alta&mensaje=$mensaje");
     
-?>
+?> 

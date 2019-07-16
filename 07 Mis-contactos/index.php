@@ -40,14 +40,14 @@ switch ($op) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> <?php echo $titulo; ?> </title>
     <link rel="stylesheet" href="css/mis_contactos.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/f462888101.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- <script src="Js/load.js"></script> -->
+    <script src="https://kit.fontawesome.com/f462888101.js" async="async"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" async="async"></script>
     <script>
     !window.jQuery && document.write("<script src='Js/jquery.min.js'><\/script>")
     </script>
-    <script src="Js/mis-contactos.js"></script>
+    <script src="Js/mis-contactos.js" async="async"></script>
 </head>
 
 <body>
@@ -61,6 +61,9 @@ switch ($op) {
                 <li><a class="cambio" href="?op=consultas">Consultas de Contacto</a></li>
             </ul>
         </nav>
+        <section class="loaderp">
+            <img src="img/loaderp.gif" alt="">
+        </section>
         <section id="principal">
             <?php include($contenido);?>
             <?php $mensaje= $_GET['mensaje']; echo"<span>$mensaje</span>";?>

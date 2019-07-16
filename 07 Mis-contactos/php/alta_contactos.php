@@ -37,13 +37,14 @@
             </select>
         </div>
         <div id="div">
-            <!-- <label for="imagen">Foto: </label> -->
-            <label id="img" for="imagen" >
+            <label id="img" for="imagen">
                 <section id="imgpred" title="Selcciona la imagen que deseas subir">
-                    <i class="fas fa-camera fa-7x"></i>
+                    <i></i>
                     <p> Subir Imagen</p>
                 </section>
-                <section id="visorArchivo"></section>
+                <section id="loader"></section>
+                <section id="visorArchivo">
+                </section>
                 <section id="imgplus" title="Cambia esta imagen por la que desees subir">
                     <div>
                         <i class="fas fa-sync-alt fa-7x"></i>
@@ -51,12 +52,13 @@
                     </div>
                 </section>
             </label>
-            <input type="file" id="imagen" onchange=" return validarExt();" class="cambio" name="imagen_fls" title="Tu Foto">
+            <input type="file" id="imagen" onchange=" return validarExt();" class="cambio" name='archivo_fls'
+                title="Tu Foto" hidden>
         </div>
-        <input type="submit" id="enviar-alta" class="cambio" name="enviar_btn" value="Agregar">
         <div id="div">
+            <input type="submit" id="enviar-alta" class="cambio" name="enviar_btn" value="Agregar">
+            <?php include("mensajes.php")?>
         </div>
-        <?php include("mensajes.php")?>
     </fieldset>
 </form>
-<script ></script>
+<script></script>

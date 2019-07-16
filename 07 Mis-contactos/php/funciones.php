@@ -2,28 +2,22 @@
 function borrar_imagenes($ruta,$extension){
     switch ($extension) {
         case '.jpg':
-            if(file_exists($ruta."png")){
-                unlink($ruta."png");
-            };
-            if(file_exists($ruta."gif")){
-                unlink($ruta."gif");
-            };
+            if(file_exists($ruta.".png"))
+                unlink($ruta.".png");
+            if(file_exists($ruta.".gif"))
+                unlink($ruta.".gif");
             break;
         case '.gif':
-            if(file_exists($ruta."png")){
-                unlink($ruta."png");
-            };
-            if(file_exists($ruta."jpg")){
-                unlink($ruta."jpg");
-            };
+            if(file_exists($ruta.".png"))
+                unlink($ruta.".png");
+            if(file_exists($ruta.".jpg"))
+                unlink($ruta.".jpg");
             break;
         case '.png':
-            if(file_exists($ruta."gif")){
-                unlink($ruta."gif");
-            };
-            if(file_exists($ruta."jpg")){
-                unlink($ruta."jpg");
-            };
+            if(file_exists($ruta.".gif"))
+                unlink($ruta.".gif");
+            if(file_exists($ruta.".jpg"))
+                unlink($ruta.".jpg");
             break;
     }
 }
@@ -31,19 +25,19 @@ function borrar_imagenes($ruta,$extension){
 //Funcion para subir la imagen del perfil del usuario
 
 function subir_imagen($tipo,$imagen,$email){
-    $nombre_img = "../img/fotos".$email;
+    $nombre_img = "../img/fotos/".$email;
 
     if (strstr($tipo,"image")) {
         // Para saber de que tipo de extension es la imagen
         if (strstr($tipo,"jpeg")) {
             $extension = ".jpg";
-        } else if (strstr($tipo,"jpeg")) {
+        } else if (strstr($tipo,"gif")) {
             $extension = ".gif";
-        }else if (strstr($tipo,"jpeg")) {
+        }else if (strstr($tipo,"png")) {
             $extension = ".png";
         }
         // Para saber si la imagen tiene el ancho correcto que de 420px
-        $tam_img = getimagesize($image);
+        $tam_img = getimagesize($imagen);
         $ancho_img = $tam_img[0];
         $alto_img = $tam_img[1];
 
@@ -59,31 +53,32 @@ function subir_imagen($tipo,$imagen,$email){
             // Creo una imagen basada en al original, dependiendo de su extension es el tipo que creare
             switch($extension){
                 case ".jpg":
-                    $image_original = imagecreateformjpeg($imagen);
+                    $image_original = imagecreatefromjpeg($imagen);
                     // Reajusto la imagen nueva con respecto a la original 
                     // imagecopyresample(dst_image, src_image, dst_x, dst_y, src_x, src_y, dst_w, dst_h, src_w, src_h);
-                    imagecopyresample($img_reajustada, $image_original, 0, 0, 0, 0, $nuevo_ancho_img, $nuevo_alto_img, $ancho_img, $alto_img);
+                    imagecopyresampled($img_reajustada, $image_original, 0, 0, 0, 0, $nuevo_ancho_img, $nuevo_alto_img, $ancho_img, $alto_img);
                     // Guardo la imagen reescalada en el servidor
                     imagejpeg($img_reajustada, $nombre_img.$extension,100);
                     borrar_imagenes($nombre_img,".jpg");
                     break;
                 case ".gif":
-                    $image_original = imagecreateformgif($imagen);
+                    $image_original = imagecreatefromgif($imagen);
                     // Reajusto la imagen nueva con respecto a la original 
                     // imagecopyresample(dst_image, src_image, dst_x, dst_y, src_x, src_y, dst_w, dst_h, src_w, src_h);
-                    imagecopyresample($img_reajustada, $image_original, 0, 0, 0, 0, $nuevo_ancho_img, $nuevo_alto_img, $ancho_img, $alto_img);
+                    imagecopyresampled($img_reajustada, $image_original, 0, 0, 0, 0, $nuevo_ancho_img, $nuevo_alto_img, $ancho_img, $alto_img);
                     // Guardo la imagen reescalada en el servidor
                     imagegif($img_reajustada, $nombre_img.$extension,100);
                     borrar_imagenes($nombre_img,".gif");
                     break;
-                case ".jpg":
-                    $image_original = imagecreateformpng($imagen);
+                case ".png":
+                    $image_original = imagecreatefrompng($imagen);
                     // Reajusto la imagen nueva con respecto a la original 
                     // imagecopyresample(dst_image, src_image, dst_x, dst_y, src_x, src_y, dst_w, dst_h, src_w, src_h);
-                    imagecopyresample($img_reajustada, $image_original, 0, 0, 0, 0, $nuevo_ancho_img, $nuevo_alto_img, $ancho_img, $alto_img);
+                    imagecopyresampled($img_reajustada, $image_original, 0, 0, 0, 0, $nuevo_ancho_img, $nuevo_alto_img, $ancho_img, $alto_img);
                     // Guardo la imagen reescalada en el servidor
                     imagepng($img_reajustada, $nombre_img.$extension,100);
                     borrar_imagenes($nombre_img,".png");
+                    
                     break;
             }
         }else{
@@ -91,7 +86,7 @@ function subir_imagen($tipo,$imagen,$email){
             $destino= $nombre_img.$email.$extension;
 
             //Se sube la foto
-            move_uploaded_file($image,$destino) or die("No se pudo subir la imagen al servidor");
+            move_uploaded_file($imagen,$destino) or die("No se pudo subir la imagen al servidor");
 
             // Ejecuto la funcion para borrar posibles imagenes dobles para el perfil
             borrar_imagenes($nombre_img,$extension);
