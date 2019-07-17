@@ -14,5 +14,5 @@
         $mensaje= "No se pudo eliminta el contacto con el email <b>$email</b> :/ debido al siguiente error :". $conexion->error."";
     }
     header("Location: ../index.php?op=baja&mensaje=$mensaje");  
-    include("conexion-cerrar.php");
+    include("cerrar_conexion.php");
 ?>

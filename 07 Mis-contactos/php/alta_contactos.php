@@ -33,7 +33,11 @@
             <label for="pais">País: </label>
             <select name="pais_slt" id="pais" class="cambio" title="Tu pais" required>
                 <option value="">Seleccionar... </option>
-                <?php include("select-pais.php")?>
+                <?php 
+                    include("conexion.php");
+                    include("select-pais.php");
+                    include("cerrar_conexion.php");
+                ?>
             </select>
         </div>
         <div id="div">
@@ -52,13 +56,13 @@
                     </div>
                 </section>
             </label>
-            <input type="file" id="imagen" onchange=" return validarExt();" class="cambio" name='archivo_fls'
+            <input type="file" id="imagen" onchange=" return validarExt(p=0);" class="cambio" name='archivo_fls'
                 title="Tu Foto" hidden>
         </div>
         <div id="div">
             <input type="submit" id="enviar-alta" class="cambio" name="enviar_btn" value="Agregar">
-            <?php include("mensajes.php")?>
         </div>
+            <?php include("mensajes.php");?>
     </fieldset>
 </form>
 <script></script>

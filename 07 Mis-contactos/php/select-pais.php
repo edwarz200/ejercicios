@@ -21,11 +21,15 @@
 
     // mysqli_close($conexion);
     // echo "<h3>Conexión cerrada</h3><hr><br>";
-    include("conexion.php");
+    // include("conexion.php");
     $consulta = ("SELECT * FROM pais ORDER BY pais");
     $ejecutar_consulta = $conexion->query($consulta);
-    while($registro = $ejecutar_consulta->fetch_object()){
-        echo "<option value=\"".$registro->pais."\">".$registro->pais.'</option> <br/>';
+    while($nombre_pais = $ejecutar_consulta->fetch_object()){
+        echo "<option value='$nombre_pais->pais'";
+            if($nombre_pais->pais==$registro_contacto->pais){
+                echo " selected";
+            }
+        echo "> $nombre_pais->pais </option> <br/>";
     }
-    include("conexion_close.php");
+    // $conexion->close();
 ?>

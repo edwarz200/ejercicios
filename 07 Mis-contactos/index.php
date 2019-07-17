@@ -66,8 +66,8 @@ switch ($op) {
         </section>
         <section id="principal">
             <?php include($contenido);?>
-            <?php $mensaje= $_GET['mensaje']; echo"<span>$mensaje</span>";?>
         </section>
+        
     </section>
 </body>
 
