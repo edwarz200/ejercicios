@@ -1,4 +1,4 @@
-<form action="php/actualizar.php" method="post" name="cambio_frm" enctype="multipar/form-data">
+<form action="php/actualizar.php" method="post" name="cambio_frm" enctype="multipart/form-data">
     <fieldset>
         <legend>Cambios de contacto</legend>
         <div>
@@ -19,6 +19,7 @@
                 $consulta_contacto="SELECT * FROM contactos WHERE email='$contacto' ";
                 $ejecutar_consulta_contacto = $conexion2->query($consulta_contacto);
                 $registro_contacto = $ejecutar_consulta_contacto->fetch_object();
+
                 include("php/cambio-form.php");
                 include("php/cerrar_conexion.php");
             }
@@ -26,18 +27,8 @@
         ?>
     </fieldset>
 </form>
-<script>
-window.onload = function() {
-    var lista = document.getElementById("contacto-lista");
-    lista.onchange = seleccionarContacto;
-
-    function seleccionarContacto() {
-        window.location = "?op=cambios&contacto_slc=" + lista.value;
-    }
-};
-var visorimg = document.getElementById("img_contacto");
-var mostimgplus = document.getElementById("imgplus");
-mostimgplus.style.display = 'block';
-
-visorimg.innerHTML = '<embed src= "<?php echo "img/fotos/".$registro_contacto->imagen; ?>">';
+<script src="Js/cambios-contactos.js"></script>
+<script> 
+    var j = '<?php echo $registro_contacto->imagen; ?>';
+    traerimagen(j);
 </script>

@@ -10,30 +10,34 @@
 }
 
 a {
-    color: #F60;
-    text-decoration: none;
+    /* color: #F60 !important; */
+    text-decoration: none !important;
 }
 
 a:hover {
-    color: #7BBFD5
+    color: #7BBFD5 !important;
 }
 
 body {
-    background: #FFF;
-    color: #212121;
-    font-family: "Chalet", Helvetica, Verdana;
-    font-size: 16px;
+    background: #FFF !important;
+    color: #212121 !important;
+    font-family: "Chalet", Helvetica, Verdana !important;
+    font-size: 16px !important;
+    font-weight: 200 !important;
+    line-height: 1 !important;
+    text-align: left !important;
 }
 
 fieldset {
-    border: .1em solid #F60;
-    border-radius: .5em;
-    padding: 1em;
+    border: .1em solid #F60 !important;
+    border-radius: .5em !important;
+    padding: 1em !important;
 }
 
 form,
 #visorArchivo,
-#imgplus {
+#imgplus,
+.sectionImg {
     display: none;
 }
 
@@ -108,31 +112,6 @@ ul {
     list-style: none;
 }
 
-nav,
-#principal {
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    display: inline-block;
-    font-size: 1em;
-    margin: .25em;
-    text-align: left;
-    width: 20%;
-    vertical-align: top;
-}
-
-#visorArchivo,
-#visorArchivo embed,
-#img_contacto,
-#img_contacto embed,
-#imgplus,
-#loader {
-    width: 100%;
-    height: 100%;
-}
-
 #contenido {
     margin: 0 auto;
     text-align: center;
@@ -142,10 +121,12 @@ nav,
     padding: 5px 5px;
 }
 
+#divimg {
+    text-align: center;
+}
+
 #img {
-    position: absolute;
-    top: 2em;
-    right: 3em;
+    position: relative;
     width: 144px;
     height: 163px;
     background: rgb(250, 250, 250);
@@ -200,7 +181,16 @@ nav,
 }
 
 #principal {
-    width: 75%;
+    -ms-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    -o-box-sizing: border-box !important;
+    -webkit-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+    display: inline-block !important;
+    font-size: 1em;
+    margin: .25em;
+    text-align: left;
+    vertical-align: top;
 }
 
 .adjuntar-archivo {
@@ -208,21 +198,43 @@ nav,
 }
 
 .cambio {
-    -ms-transition: all .55s ease-out;
-    -moz-transition: all .55s ease-out;
-    -o-transition: all .55s ease-out;
-    -webkit-transition: all .55s ease-out;
-    transition: all .55s ease-out;
+    -ms-transition: all .55s ease-out !important;
+    -moz-transition: all .55s ease-out !important;
+    -o-transition: all .55s ease-out !important;
+    -webkit-transition: all .55s ease-out !important;
+    transition: all .55s ease-out !important;
+}
+
+.divImg,
+.sectionImg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+.divImg,
+#imgplus,
+#img_contacto,
+#img_contacto embed,
+#loader,
+.sectionImg,
+#visorArchivo,
+#visorArchivo embed {
+    width: 100%;
+    height: 100%;
 }
 
 .loaderp {
     position: absolute;
-    top: 0;
-    left: 20%;
-    width: 75%;
+    /* top: 5%; */
+    left: 0;
+    width: 100%;
+    height: 90%;
     background-color: #FFF;
-    background-position-y: 0%;
+    /* background-position-y: 0%; */
     z-index: 5;
+    overflow: hidden;
 }
 
 .mensajes {
@@ -231,4 +243,38 @@ nav,
     font-family: Helvetica, Verdana;
     font-size: 1em;
     padding: .5em;
+}
+
+.sectionImg {
+    background-color: #2121213c;
+}
+
+.transformdiv {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    width: 400px;
+    height: 50%;
+    transform: scale(0);
+    border: 5px solid rgb(61, 61, 61);
+    background-color: rgb(61, 61, 61);
+}
+
+.transformdiv,
+.transformdiv img {
+    border-radius: .4em;
+}
+
+.transformdiv span {
+    position: absolute;
+    bottom: 100%;
+    left: 100%;
+    opacity: 0.6;
+}
+
+.transformdiv span:hover {
+    opacity: 1;
 }

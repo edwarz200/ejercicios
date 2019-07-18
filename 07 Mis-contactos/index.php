@@ -43,6 +43,7 @@ switch ($op) {
     <!-- <script src="Js/load.js"></script> -->
     <script src="https://kit.fontawesome.com/f462888101.js" async="async"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" async="async"></script>
     <script>
     !window.jQuery && document.write("<script src='Js/jquery.min.js'><\/script>")
@@ -53,12 +54,22 @@ switch ($op) {
 <body>
     <section id="contenido">
         <nav>
-            <ul>
-                <li><a class="cambio" href="index.php">Home</a></li>
-                <li><a class="cambio" href="?op=alta">Alta de Contacto</a></li>
-                <li><a class="cambio" href="?op=baja">Baja de Contacto</a></li>
-                <li><a class="cambio" href="?op=cambios">Cambios de Contacto</a></li>
-                <li><a class="cambio" href="?op=consultas">Consultas de Contacto</a></li>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link cambio text-warning <?php if(!$_GET['op']){ echo "active";}?>" href="index.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link cambio text-warning <?php if($_GET['op']=="alta"){ echo "active";}?>" href="?op=alta">Agregar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link cambio text-warning <?php if($_GET['op']=="baja"){ echo "active";}?>" href="?op=baja">Eliminar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link cambio text-warning <?php if($_GET['op']=="cambios"){ echo "active";}?>" href="?op=cambios">Modificar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link cambio text-warning <?php if($_GET['op']=="consultas"){ echo "active";}?>" href="?op=consultas">Buscar</a>
+                </li>
             </ul>
         </nav>
         <section class="loaderp">
@@ -67,7 +78,7 @@ switch ($op) {
         <section id="principal">
             <?php include($contenido);?>
         </section>
-        
+
     </section>
 </body>
 

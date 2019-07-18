@@ -1,3 +1,20 @@
+<div id="divimg">
+    <label id="img" for="imagen">
+        <section id="img_contacto" title="Cambia esta imagen por la que desees subir">
+        </section>
+        <section id="loader"></section>
+        <section id="visorArchivo">
+        </section>
+        <section id="imgplus" title="Cambia esta imagen por la que desees subir">
+            <div>
+                <i class="fas fa-sync-alt fa-7x"></i>
+                <p>Modificar Imagen</p>
+            </div>
+        </section>
+    </label>
+    <input name="Archivo_fls" type="file" id="imagen" onchange="return validarExt(1)" class="cambio" title="Tu Foto" hidden>
+    <input type="hidden" name="foto_hdn" value="<?php echo "$registro_contacto->imagen"; ?>">
+</div>
 <div>
     <label for="email">Email: </label>
     <input type="email" id="email" class="cambio" name="email_txt" placeholder="Escribe tu email" title="Tu email"
@@ -32,25 +49,8 @@
     <label for="pais">País: </label>
     <select name="pais_slt" id="pais" class="cambio" title="Tu pais" required>
         <option value="">Seleccionar... </option>
-        <?php include("select-pais.php");?>
+        <?php include("select-pais.php"); ?>
     </select>
-</div>
-<div>
-    <label id="img" for="imagen">
-        <section id="img_contacto" title="Cambia esta imagen por la que desees subir">
-        </section>
-        <section id="loader"></section>
-        <section id="visorArchivo">
-        </section>
-        <section id="imgplus" title="Cambia esta imagen por la que desees subir">
-            <div>
-                <i class="fas fa-sync-alt fa-7x"></i>
-                <p>Modificar Imagen</p>
-            </div>
-        </section>
-    </label>
-    <input type="file" id="imagen" onchange="$p=1; return validarExt($p);" class="cambio" name="Archivo_fls" title="Tu Foto">
-    <input type="hidden" name="foto_hdn" value="<?php echo "$registro_contacto->imagen"; ?>">
 </div>
 <div>
     <input type="submit" id="enviar-alta" class="cambio" name="enviar_btn" value="Modificar">

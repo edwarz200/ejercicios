@@ -1,6 +1,25 @@
 <form action="php/insercion.php" id="alta-contacto" name="alta_frm" method="post" enctype="multipart/form-data">
     <fieldset>
         <legend>Alta de Contacto</legend>
+        <div id="divimg">
+            <label id="img" for="imagen">
+                <section id="imgpred" title="Selcciona la imagen que deseas subir">
+                    <i></i>
+                    <p> Subir Imagen</p>
+                </section>
+                <section id="loader"></section>
+                <section id="visorArchivo">
+                </section>
+                <section id="imgplus" title="Cambia esta imagen por la que desees subir">
+                    <div>
+                        <i class="fas fa-sync-alt fa-7x"></i>
+                        <p>Modificar Imagen</p>
+                    </div>
+                </section>
+            </label>
+            <input type="file" id="imagen" onchange=" return validarExt(p=0);" class="cambio" name='archivo_fls'
+                title="Tu Foto" hidden>
+        </div>
         <div id="div">
             <label for="email">Email: </label>
             <input type="email" id="email" class="cambio" name="email_txt" placeholder="Escribe tu email"
@@ -39,25 +58,6 @@
                     include("cerrar_conexion.php");
                 ?>
             </select>
-        </div>
-        <div id="div">
-            <label id="img" for="imagen">
-                <section id="imgpred" title="Selcciona la imagen que deseas subir">
-                    <i></i>
-                    <p> Subir Imagen</p>
-                </section>
-                <section id="loader"></section>
-                <section id="visorArchivo">
-                </section>
-                <section id="imgplus" title="Cambia esta imagen por la que desees subir">
-                    <div>
-                        <i class="fas fa-sync-alt fa-7x"></i>
-                        <p>Modificar Imagen</p>
-                    </div>
-                </section>
-            </label>
-            <input type="file" id="imagen" onchange=" return validarExt(p=0);" class="cambio" name='archivo_fls'
-                title="Tu Foto" hidden>
         </div>
         <div id="div">
             <input type="submit" id="enviar-alta" class="cambio" name="enviar_btn" value="Agregar">

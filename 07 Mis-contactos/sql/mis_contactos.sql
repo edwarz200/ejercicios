@@ -68,7 +68,7 @@ INSERT INTO pais(id_pais,pais) VALUES
     (17,"Ecuador"),
     (18,"Bolivia"),
     (19,"Canada"),
-    (20,"Estador Unidos"),
+    (20,"Estados Unidos"),
     (21,"Groenlandia"),
     (22,"República Dominicana"),
     (23,"Haití"),
