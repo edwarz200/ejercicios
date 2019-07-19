@@ -1,5 +1,4 @@
 <?php
-include("php/conexion.php");
 include("php/funciones.php");
 $ejecutar_consulta = $conexion->query($consulta);
 $num_regs = $ejecutar_consulta->num_rows;

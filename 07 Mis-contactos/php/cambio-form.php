@@ -12,7 +12,8 @@
             </div>
         </section>
     </label>
-    <input name="Archivo_fls" type="file" id="imagen" onchange="return validarExt(1)" class="cambio" title="Tu Foto" hidden>
+    <input name="Archivo_fls" type="file" id="imagen" onchange="return validarExt(1)" class="cambio" title="Tu Foto"
+        hidden>
     <input type="hidden" name="foto_hdn" value="<?php echo "$registro_contacto->imagen"; ?>">
 </div>
 <div>
@@ -23,8 +24,10 @@
 </div>
 <div>
     <label for="nombre">Nombre: </label>
-    <input type="text" id="nombre" class="cambio" name="nombre_txt" title="Tu Nombre" placeholder="Escribe tu Nombre"
-        value="<?php echo $registro_contacto->nombre; ?>" required>
+    <input type="text" id="nombre" class="cambio" name="nombre_txt"
+        title="Escribe tu nombre (este campo solo acepta tildes y letras, minimio 4 letras)"
+        placeholder="Escribe tu Nombre" value="<?php echo $registro_contacto->nombre; ?>"
+        pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{1,15}" minlength="4" required>
 </div>
 <div>
     <label for="m">Sexo: </label>

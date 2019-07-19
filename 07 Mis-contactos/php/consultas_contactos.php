@@ -12,6 +12,7 @@
             <option value="buscador" <?php if($_GET["consulta_slc"]== "buscador"){ echo " selected";} ?> >Tipo Buscador</option>
         </select>
         <?php
+            include("php/conexion.php");
             switch($_GET["consulta_slc"]){
                 case "todos":
                     include("php/consultas/consulta-todo.php");
@@ -32,7 +33,7 @@
                     include("php/consultas/consulta-buscador.php");
                 break;
             }
-
+            include("php/cerrar_conexion.php");
         ?>
     </fieldset>
 </form>

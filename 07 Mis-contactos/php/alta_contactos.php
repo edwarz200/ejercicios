@@ -27,8 +27,9 @@
         </div>
         <div id="div">
             <label for="nombre">Nombre: </label>
-            <input type="text" id="nombre" class="cambio" name="nombre_txt" title="Tu Nombre"
-                placeholder="Escribe tu Nombre" required>
+            <input type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{1,15}" id="nombre" class="cambio" name="nombre_txt"
+                title="Escribe tu nombre (este campo solo acepta tildes y letras, minimio 4 letras)"
+                placeholder="Escribe tu Nombre" minlength="4" required>
         </div>
         <div id="div">
             <label for="m">Sexo: </label>
@@ -46,7 +47,7 @@
         <div id="div">
             <label for="telefono">Telefono: </label>
             <input type="number" id="telefono" class="cambio" name="telefono_txt" placeholder="Escribe tu telefono"
-                title="Tu telefono" required>
+                title="Escribe tu telefono (minimo 4 numeros)" required>
         </div>
         <div id="div">
             <label for="pais">País: </label>
@@ -62,7 +63,7 @@
         <div id="div">
             <input type="submit" id="enviar-alta" class="cambio" name="enviar_btn" value="Agregar">
         </div>
-            <?php include("mensajes.php");?>
+        <?php include("mensajes.php");?>
     </fieldset>
 </form>
 <script></script>

@@ -26,7 +26,7 @@
     $ejecutar_consulta = $conexion->query($consulta);
     while($nombre_pais = $ejecutar_consulta->fetch_object()){
         echo "<option value='$nombre_pais->pais'";
-            if($nombre_pais->pais==$registro_contacto->pais){
+            if($nombre_pais->pais==$registro_contacto->pais || $_GET["pais_slc"]==$nombre_pais->pais){
                 echo " selected";
             }
         echo "> $nombre_pais->pais </option> <br/>";
