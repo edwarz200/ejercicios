@@ -8,21 +8,18 @@ console.log('Hola Mundo desde Node.js, esto se vera en el terminal de comandos')
 console.log(2 + 5);
 
 // console.log(global);
-var h = 5;
-var m = 33;
-var s = 50;
-var r = s;
-var am = "a.m";
-var pm = "p.m";
+var h = 12;
+var m = 59;
+var s = 48;
+var am = 'a.m';
+var pm = 'p.m';
 var fh = pm;
-var otroCero = '0';
 setInterval(function() {
-    r++;
-    if (s == 60) {
-        s = otroCero + r;
+    s++;
+    if (s >= 59) {
+        s = 0;
         m++;
-        if (m == 60) {
-            s = 0;
+        if (m >= 59) {
             m = 0;
             h++;
             if (h == 12 && fh == am) {
@@ -36,16 +33,5 @@ setInterval(function() {
 
         }
     }
-    if (s == otroCero + 0) {
-        console.log("entro1");
-        s = otroCero + (s + 1);
-    }
-    if (s == otroCero + 10) {
-        console.log("entro2");
-        s = r;
-    } else {
-        console.log("entro3");
-        s = r;
-    }
-    console.log(h + ":" + m + ":" + s + " " + fh);
+    console.log(h + ':' + m + ':' + s + ' ' + fh);
 }, 1000)
